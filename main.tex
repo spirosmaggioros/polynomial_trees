@@ -175,7 +175,7 @@ So, instead of computing the polynomial for all n nodes at $\omega^0_n, \omega^1
 The algorithm makes two recursive calls of size $\frac{n}{2}$ and takes $\theta(n)$ time to merge the result.Thus, from Master's Theorem $T(n) = 2T(\frac{n}{2}) + \theta(n) = \theta(n \cdot logn)$ \cite{Masters Theorem}.The above algorithm is well known as Cooley Tukey Algorithm \cite{Cooley Tukey,Cooley Tukey 2}. \[X_n = \sum_{k = 0}^{\frac{N}{2} - 1} x_{2n}e^{\frac{-i 2 \pi k n}{\frac{N}{2}}} + e^{\frac{-i 2 \pi n}{N}}\sum_{k=0}^{\frac{N}{2} - 1} X_{2n + 1} e^{\frac{-i 2 \pi k n}{\frac{N}{2}}} = E_k + e^{\frac{-i 2 \pi k}{N}} O_k\] for $k = 0,1,...,\frac{N}{2} - 1$.
 The first part of the sum is the DFT of even-indexed part of $X_n$ and the second part is the DFT of odd-indexed part of $X_n$.Using the periodicity of the complex exponential we can easily compute \[X_{k + \frac{N}{2}} = E_k - e^{\frac{2 \pi i k}{N}} O_k\]
 \medbreak
-Evaluation's time complexity is simply $O(n)$ as we can simply traverse the tree with inorder fashion.Have in mind that each operation will return a tree that is strongly balanced and still having Binary search trees properties.
+Evaluation's time complexity is $O(n)$ as we can simply traverse the tree in inorder fashion.Have in mind that each operation will return a tree that is strongly balanced and still have all of the Binary search tree properties.
 \input{algorithms/evaluate}
 
 \medbreak
