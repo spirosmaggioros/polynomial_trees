@@ -40,7 +40,7 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{Polynomials representation using AVL Trees}
+\Title{Polynomial representation using AVL Trees}
 
 % MDPI internal command: Title for citation in the left column
 \TitleCitation{Polynomial representation using AVL Trees}
@@ -67,8 +67,8 @@ $^{1}$ \quad Affiliation 1; spirosmag@ieee.org\\
 $^{2}$ \quad Affiliation 2; nikolasfryganiotis@gmail.com}
 
 % Current address and/or shared authorship
-\firstnote{National Technical University of Athens.}
-\secondnote{Current address: Athens, Greece.} 
+\firstnote{
+School of Electrical and Computer Engineering, National Technical University of Athens, 15780 Zografou, Greece}
 %\secondnote{These authors contributed equally to this work.}
 % The commands \thirdnote{} till \eighthnote{} are available for further notes
 
@@ -78,7 +78,7 @@ $^{2}$ \quad Affiliation 2; nikolasfryganiotis@gmail.com}
 
 % Abstract (Do not insert blank lines, i.e. \\) 
 
-\abstract{We present a data structure based on AVL Trees, used for polynomial representation which allows insertion and deletion to be performed in $O(logn)$ and is able to return a sorted polynomial without further computation.Experimental results showed that this structure performs better for sparse polynomials as it has a much lower space complexity than other data structures used to store polynomials.}
+\abstract{We present a data structure based on AVL trees for polynomial representation, enabling insertion and deletion operations in $O(logn)$ time. Additionally, the structure facilitates efficient retrieval of a sorted polynomial without additional computation. Experimental results demonstrate that this approach outperforms other data structures in terms of space complexity, particularly for sparse polynomials.}
 
 % Keywords
 \keyword{polynomials representation; space complexity; data structures; trees; algorithms } 
@@ -162,7 +162,7 @@ Lets suppose our BST consists of only values in increasing order, for example, l
 Using this structure, adding 2 polynomials will take up to $O(n\cdot \log m)$ time as we can consider that to make this operation \[\sum_{i=0}^{n} a_ix^i + \sum_{j = 0}^{m} b_jx^j\] we have to iterate through the one tree(better to iterate through the tree that have less nodes so we can take advantage of the logarithmic property) and just insert the nodes to the other one. We iterate with inorder fashion, so that will take $O(n)$ time and the insertion will take $O(\log m)$ time.
 \input{algorithms/add_poly}
 \medbreak
-As for multiplying, the idea is the same, the only difference is that we are traversing both trees in inorder fashion and that will take $O(n \cdot m)$ time as we can consider that \[\sum_{i=0}^{n} a_ix^i \times \sum_{j = 0}^{m} b_jx^j = \sum_{i = 0}^{n}a_ix^i \cdot (\sum_{j = 0}^{m}b_j \cdot x_j)\]. Unfortunately, we can't have the result in one of the starting polynomials and that is why we have to create a new tree to store the result. Inserting the nodes to the new tree will take $O(\log d)$ and that is making multiplication's time complexity $O(n \cdot m \cdot logd)$ where d is the number of nodes of the new tree.
+As for multiplying, the idea is the same, the only difference is that we are traversing both trees in inorder fashion and that will take $O(n \cdot m)$ time as we can consider that \[\sum_{i=0}^{n} a_ix^i \times \sum_{j = 0}^{m} b_jx^j = \sum_{i = 0}^{n}a_ix^i \cdot (\sum_{j = 0}^{m}b_j \cdot x_j)\] Unfortunately, we can't have the result in one of the starting polynomials and that is why we have to create a new tree to store the result. Inserting the nodes to the new tree will take $O(\log d)$ and that is making multiplication's time complexity $O(n \cdot m \cdot logd)$ where d is the number of nodes of the new tree.
 \input{algorithms/multiply}
 
 A more modern version for multiplication of polynomials is using FFT(Fast Fourier Transform).Using FFT, the multiplication time complexity comes down to $\theta(n \cdot logn)$.The downside of using FFT is that, to construct the polynomial using an array, insertion's time complexity is $O(n)$ as we have to iterate through every node to check if there exist a same exponent as the one we insert.Note that, we can't use the indexes of the array as exponents, because then, there's a probability of empty nodes between used nodes, thus, FFT will not work properly.To fix this, we have to insert the nodes like an array, making the insertion's time complexity $O(n)$, which is disappointing.
