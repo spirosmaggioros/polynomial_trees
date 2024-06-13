@@ -1,0 +1,33 @@
+\begin{algorithm}[H]
+    \caption{Insert a Node} \label{insert_node}
+    \begin{algorithmic}
+    \Procedure{insert\_node}{root, coefficient, exponent}
+    \State n $\gets$ node(coefficient, exponent)
+    \If {root == NULL}
+        \State return n
+    \EndIf
+    \If {exponent $<$ root.expon}
+        \State root.left = insert(root.left, coefficient, exponent)
+    \ElsIf {exponent $>$ root.expon}
+        \State root.right = insert(root.right, coefficient, exponent)
+    \Else 
+        \State root.coeff $\gets$ root.coeff + a
+        \State return root
+    \EndIf
+    \State w $\gets$ get\_balance(root)
+    \If {w $>$ 1}
+        \If {get\_balance(root.left) $<$ 0}
+            \State root.left $\gets$ left\_rotate(root.left)
+         \EndIf
+         \State return right\_rotate(root)
+    \ElsIf {w $<$ -1}
+        \If {get\_balance(root.right) $>$ 0}
+            \State root.right $\gets$ right\_rotate(root.right)
+         \EndIf
+         \State return left\_rotate(root)
+    \EndIf
+    \State return root
+    \EndProcedure
+\end{algorithmic}
+
+\end{algorithm}

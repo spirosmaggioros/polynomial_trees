@@ -1,0 +1,20 @@
+\begin{algorithm}[H]
+    \caption{Multiply two Polynomials} \label{multiply}
+    \begin{algorithmic}
+    \Procedure{multiply}{poly\_1, poly\_2}    
+    \If {poly\_1 == NULL or poly\_2 == NULL}
+        \State return NULL
+    \EndIf
+    \State poly $\gets$ NULL
+    \For {every node n $\in$ poly\_2}
+        \State tmp\_poly $\gets$ NULL
+        \For {every node m $\in$ poly\_1}
+            \State tmp\_poly $\gets$ insert(tmp\_poly, m.coeff $\cdot$ n.coeff, m.expon + n.expon)
+        \EndFor
+        \State poly $\gets$ add(poly, tmp\_poly)
+    \EndFor
+    \State return poly
+    \EndProcedure
+\end{algorithmic}
+
+\end{algorithm}

@@ -1,0 +1,13 @@
+\begin{algorithm}[H]
+    \caption{Calculate the Height of a Node} \label{calculate_height}
+    \begin{algorithmic}
+    \Procedure{inorder}{root}
+    \If {root == NULL}
+    \State return $0$
+     \Else 
+     \State return 1 + $\max \{\text{height(root.left, height(root.right)}\}$
+    \EndIf
+    \EndProcedure
+\end{algorithmic}
+
+\end{algorithm}

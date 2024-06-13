@@ -1,0 +1,19 @@
+\begin{algorithm}[H]
+    \caption{Add two Polynomials} \label{add}
+\begin{algorithmic}
+    \Procedure{add}{poly\_1, poly\_2}
+    \If {poly\_1 == NULL} 
+        \State return poly\_2
+    \EndIf
+    \If {poly\_2 == NULL} 
+        \State return poly\_1
+    \EndIf
+    \State tmp\_poly $\gets$ poly\_1
+    \For {every node n $\in$ poly\_2}
+    \State tmp\_poly $\gets$ insert(root, n.coeff, n.expon)
+    \EndFor
+    \State return tmp\_poly
+    \EndProcedure
+\end{algorithmic}
+
+\end{algorithm}

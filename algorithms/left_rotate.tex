@@ -1,0 +1,13 @@
+\begin{algorithm}[H]
+    \caption{Left Rotation on the Tree} \label{left_rotate}
+    \begin{algorithmic}
+    \Procedure{left\_rotate}{root}    
+    \State t $\gets$ root.right
+    \State u $\gets$ t.left
+    \State t.left $\gets$ root
+    \State root.right $\gets$ u
+    \State return t
+    \EndProcedure
+\end{algorithmic}
+
+\end{algorithm}

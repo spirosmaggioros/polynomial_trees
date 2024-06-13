@@ -1,0 +1,14 @@
+\begin{algorithm}[H]
+    \caption{Evaluate a Polynomial Value for an Input} \label{evaluate}
+    \begin{algorithmic}
+    \Procedure{evaluate}{poly, x, val}
+        \If {root!=NULL}
+            \State evaluate(poly.left, x, val)
+            \State val $\gets$ val + poly.coeff $\cdot$ $x ^ \text{poly.expon}$
+            \State evaluate(poly.right, x, val)
+        \EndIf
+    
+    \EndProcedure
+\end{algorithmic}
+
+\end{algorithm}

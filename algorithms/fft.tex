@@ -1,0 +1,30 @@
+
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+
+
+\begin{algorithm}[H]
+    \caption{Recursive FFT for polynomial multiplication} \label{inorder_traversal}
+    \begin{algorithmic}
+    \Procedure{FFT-Rec}{a}
+    \State n = sizeof(a)
+    \If {n == 1}
+        \State return a
+    \EndIf
+    \State $a_e = (a_0 , a_2 , ... , a_{n-2})$
+    \State $a_o = (a_1 , a_3 , ... , a_{n-1})$
+    \State $p_e = FFT-Rec(a_e)$
+    \State $p_o = FFT-Rec(a_o)$
+    \State $\omega_n$ = $\exp{\frac{2 \cdot \pi i}{n}}$
+    \State $\omega = 1$
+    \For{$k=0$ to $\frac{n}{2} - 1$}
+    \State $p_k = (p_e)_k + \omega(p_o)_k$
+    \State $p_{j + \frac{n}{2}} = (p_e)_k - \omega(p_o)_k$
+    \State $\omega = \omega\omega_n$
+    \EndFor
+    \State $p = (p_o , p_1 , ... , p_{n-1})$
+    \State return p
+    \EndProcedure
+\end{algorithmic}
+
+\end{algorithm}
