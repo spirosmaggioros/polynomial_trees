@@ -17,8 +17,8 @@
 \pubvolume{1}
 \issuenum{1}
 \articlenumber{0}
-\pubyear{2023}
-\copyrightyear{2023}
+\pubyear{2024}
+\copyrightyear{2024}
 %\externaleditor{Academic Editor: Firstname Lastname}
 \datereceived{ } 
 \daterevised{ } % Comment out if no revised date
@@ -172,7 +172,7 @@ We can see that with this method, time complexity is $\theta(n^2)$.We can use FF
 Then, for every $x \in C$ we can evaluate A using the following formula \[p(x) = p_e(x^2) + xp_o(x^2)\]
 So, instead of computing the polynomial for all n nodes at $\omega^0_n, \omega^1_n, ..., \omega^{n-1}_n$, we just have to evaluate $p_e$ and $p_o$ for $\frac{n}{2}$ nodes \cite{FFT Rec}.In short, we divided the problem into two sub-problems of size $\frac{n}{2}$.
 \input{algorithms/fft.tex}
-The algorithm makes two recursive calls of size $\frac{n}{2}$ and takes $\theta(n)$ time to merge the result.Thus, from Master's Theorem $T(n) = 2T(\frac{n}{2}) + \theta(n) = \theta(n \cdot logn)$ \cite{Masters Theorem}.The above algorithm is well known as Cooley Tukey Algorithm \cite{Cooley Tukey,Cooley Tukey 2}. \[X_n = \sum_{k = 0}^{\frac{N}{2} - 1} x_{2n}e^{\frac{-i 2 \pi k n}{\frac{N}{2}}} + e^{\frac{-i 2 \pi n}{N}}\sum_{k=0}^{\frac{N}{2} - 1} X_{2n + 1} e^{\frac{-i 2 \pi k n}{\frac{N}{2}}} = E_k + e^{\frac{-i 2 \pi k}{N}} O_k\] for $k = 0,1,...,\frac{N}{2} - 1$.
+The algorithm makes two recursive calls of size $\frac{n}{2}$ and takes $\theta(n)$ time to merge the result.Thus, from Master's Theorem $T(n) = 2T(\frac{n}{2}) + \theta(n) = \theta(n \cdot logn)$ \cite{Masters Theorem}.The above algorithm is well known as Cooley Tukey Algorithm \cite{Cooley Tukey 2}. \[X_n = \sum_{k = 0}^{\frac{N}{2} - 1} x_{2n}e^{\frac{-i 2 \pi k n}{\frac{N}{2}}} + e^{\frac{-i 2 \pi n}{N}}\sum_{k=0}^{\frac{N}{2} - 1} X_{2n + 1} e^{\frac{-i 2 \pi k n}{\frac{N}{2}}} = E_k + e^{\frac{-i 2 \pi k}{N}} O_k\] for $k = 0,1,...,\frac{N}{2} - 1$.
 The first part of the sum is the DFT of even-indexed part of $X_n$ and the second part is the DFT of odd-indexed part of $X_n$.Using the periodicity of the complex exponential we can easily compute \[X_{k + \frac{N}{2}} = E_k - e^{\frac{2 \pi i k}{N}} O_k\]
 \medbreak
 Evaluation's time complexity is $O(n)$ as we can simply traverse the tree in inorder fashion.Have in mind that each operation will return a tree that is strongly balanced and still have all of the Binary search tree properties.
@@ -434,9 +434,7 @@ We explained that Addition of 2 polynomials using a linked list is $O(n\cdot m)$
 L. Rivest, and Clifford Stein. Introduction to Algorithms, Second Edition. MIT Press and McGraw-
 Hill, 2001.
 
-\bibitem[Stanford(1965)]{Cooley Tukey}An Algorithm for the Machine Calculation of Complex Fourier Series. Stanford \href{https://web.stanford.edu/class/cme324/classics/cooley-tukey.pdf}{[CrossRef]} 
-
-\bibitem[Carleton(2016]{Cooley Tukey 2}Cooley Tukey FFT Algorithms. Carleton \href{http://people.scs.carleton.ca/~maheshwa/courses/5703COMP/16Fall/FFT_Report.pdf}{[CrossRef]}
+\bibitem[Carleton(2016]{Cooley Tukey 2} James W. Cooley and John W. Tukey. An Algorithm for the Machine Calculation of Complex Fourier Series \href{https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf}{[CrossRef]}
 \end{thebibliography}
 \PublishersNote{}
 \end{adjustwidth}
